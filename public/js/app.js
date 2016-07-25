@@ -1,5 +1,5 @@
-var app = angular.module('ConceptDrop', ['formCtrl', 'ngRoute'])
-        .config(function($routeProvider){
+var app = angular.module('ConceptDrop', ['formCtrl', 'fieldCtrl', 'ngRoute'])
+        .config(['$routeProvider', function($routeProvider){
           $routeProvider.when('/', {
             controller: 'formCtrl',
             templateUrl: 'partials/formList.html',
@@ -8,12 +8,9 @@ var app = angular.module('ConceptDrop', ['formCtrl', 'ngRoute'])
             controller: 'formCtrl',
             templateUrl: 'partials/formList.html',
           })
-          .when('/form', {
-            controller: 'formCtrl',
-            templateUrl: function() {
-                console.log('router invoked');
-                return 'partials/form.html';
-            },
+          .when('/order/:type', {
+            controller: 'fieldCtrl',
+            templateUrl: 'partials/orderForm.html'
           })
           .otherwise( {redirectTo: '/order'} );
-        });
+  }]);

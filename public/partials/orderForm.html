@@ -1,0 +1,96 @@
+<div ng-controller="fieldCtrl" ng-cloak>
+    <form name="orderForm">
+        <div ng-repeat="field in formFields track by $index">
+            <div ng-if="field.Type === 0">
+                <fieldset class="form-group">
+                    <label for="{{field.Id}}">{{ field.Name}}</label>
+                    <input type="number" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                </fieldset>
+            </div>
+            <div ng-if="field.Type === 1">
+                <fieldset class="form-group">
+                    <label for="{{field.Id}}">{{ field.Name}}</label>
+                    <input type="text" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                </fieldset>
+            </div>
+            <div ng-if="field.Type === 2">
+                <fieldset class="form-group">
+                    <label for="{{field.Id}}">{{ field.Name}}</label>
+                    <input type="text" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                </fieldset>
+            </div>
+            <div ng-if="field.Type === 3">
+                <fieldset class="form-group">
+                    <label for="{{field.Id}}">{{ field.Name}}</label>
+                    <input type="text" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                </fieldset>
+            </div>
+            <div ng-if="field.Type === 4">
+                <fieldset class="form-group">
+                    <label for="{{field.Id}}">{{ field.Name}}</label>
+                    <input type="email" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                </fieldset>
+            </div>
+            <div ng-if="field.Type === 5">
+                <fieldset class="form-group">
+                    <label for="{{field.Id}}">{{ field.Name}}</label>
+                    <input type="file" class="form-control-file" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                    <small class="text-muted">{{ field.Description }}</small>
+                </fieldset>
+            </div>
+            <div ng-if="field.Type === 6">
+                <fieldset class="form-group">
+                    <label for="{{field.Id}}">{{ field.Name}}</label>
+                    <input type="file" accept=".zip" class="form-control-file" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                    <small class="text-muted">{{ field.Description }}</small>
+                </fieldset>
+            </div>
+            <div ng-if="field.Type === 7 || field.Type === 8 || field.Type === 11 || field.Type === 12">
+                <fieldset class="form-group">
+                    <label class="form-control-label">{{ field.Name}}</label>
+                    <p><small class="text-muted">{{ field.Description }}</small></p>
+                    <div class="radio" ng-repeat="value in field.Values track by $index">
+                        <label>
+                            <input type="radio" name="{{ field.Id }}" data-id="{{field.Id}}" value="{{value}}" />
+                            {{ value }} {{ field.PriceModifiers[$index].c1 }}
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+            <div ng-if="field.Type === 9 || field.Type == 10">
+                <fieldset class="form-group">
+                    <label class="form-control-label">{{ field.Name}}</label>
+                    <p><small class="text-muted">{{ field.Description }}</small></p>
+                    <div class="checkbox" ng-repeat="value in field.Values track by $index" >
+                        <label>
+                            <input type="checkbox" data-id="{{field.Id}}" value="{{value}}" />
+                            {{ value }}
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+            <div ng-if="field.Type === 13">
+                <fieldset class="form-group">
+                    <label for="{{field.Id}}">{{ field.Name}}</label>
+                    <input type="text" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                </fieldset>
+            </div>
+            <div ng-if="field.Type === 14">
+                <fieldset class="form-group">
+                    <label class="form-control-label">{{ field.Name}}</label>
+                    <p><small class="text-muted">{{ field.Description }}</small></p>
+                    <div ng-if="field.Values === null">
+                        <input type="number" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" min="1" placeholder="1"/>
+                    </div>
+                    <div class="radio" ng-if="field.Values !== null" ng-repeat="value in field.Values track by $index">
+                        <label>
+                            <input type="radio" name="{{ field.Id }}" data-id="{{field.Id}}" value="{{value}}" />
+                            {{ value }}
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </form>
+    <h2 ng-cloak>{{priceText}}{{currency}}{{price}}</h2>
+</div>

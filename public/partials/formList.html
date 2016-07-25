@@ -1,8 +1,12 @@
-<ul class="tile-list">
-    <a class="list-link" href="#/form" ng-repeat="form in formList" ng-click="getFormFields($event)">
-        <li class="list-item" id="{{form.Id}}">
-            <i class="{{'fa ' + form.Icon + ' fa-4x'}}"></i>
-            <h3>{{form.Type}}</h3>
-        </li>
-    </a>
-</ul>
+<div ng-controller="formCtrl" ng-cloak>
+    <ul class="tile-list" ng-controller="formCtrl">
+        <div ng-repeat="form in formList">
+            <a class="list-link" href="{{ '#/order/' + (form.Type | setURL) }}">
+                <li class="list-item" id="{{form.Id}}">
+                    <i class="{{'fa ' + form.Icon + ' fa-4x'}}"></i>
+                    <h3>{{form.Type}} </h3>
+                </li>
+            </a>
+        </div>
+    </ul>
+</div>

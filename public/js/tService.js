@@ -1,35 +1,22 @@
 angular.module('tService', [])
-  .factory( 'tService', function($http){
+  .factory( 'tService', function(){
 
     /*********** Initialize variables ********************/
 
     var typeService = {};     // The service that this factory will return
-
 
     /*********** Functions ******************************/
 
     // Adding some description for each form based on the type
     typeService.getFormData = function(data) {
       data.forEach( function(item){
-        //Wanted to use item description, but decided agianst it
-        //item.Description = 'Some ' + item.Type + ' description here';
+        //item.Icon = 'fa-<icon-name>';
         item.Icon = getFormIcon(item.Type);
       });
       // Return the data object with a Description property added
       return data;
     };
-
-    typeService.getFormFields = function(reqId) {
-      var formFields = {};
-      $http.get('http://api.conceptdrop.com/api/OrderForms/' + reqId)
-        .success( function (data) {
-          formFields = data;
-          console.log('form fields json set');
-        });
-      return formFields;
-    };
-
-
+    
     /********** Private Inner Functions *****************/
 
     // To get the appropriate Font Awesome Icon based on the form type
