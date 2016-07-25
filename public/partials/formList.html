@@ -1,0 +1,8 @@
+<ul class="tile-list">
+    <a class="list-link" href="#/form" ng-repeat="form in formList" ng-click="getFormFields($event)">
+        <li class="list-item" id="{{form.Id}}">
+            <i class="{{'fa ' + form.Icon + ' fa-4x'}}"></i>
+            <h3>{{form.Type}}</h3>
+        </li>
+    </a>
+</ul>

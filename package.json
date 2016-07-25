@@ -1,0 +1,15 @@
+{
+  "name"              : "concept-drop-challenge",
+  "version"           : "0.0.1",
+  "description"       : "Interview coding question for ConceptDrop",
+  "main"              : "server.js",
+  "author"            : "Ruchir Doshi",
+  "license"           : "MIT",
+  "dependencies"      : {
+      "express"       : "*",
+      "morgan"        : "*",
+      "body-parser"   : "*",
+      "method-override" : "*"
+  }
+
+}
