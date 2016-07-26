@@ -1,86 +1,95 @@
 <div ng-controller="fieldCtrl" ng-cloak>
+    <div class="alert alert-info" role="alert">
+        <h4><span class="text-danger"><i class="fa fa-asterisk"></i></span> Required Fields</h4>
+    </div>
     <form name="orderForm">
         <div ng-repeat="field in formFields track by $index">
             <div ng-if="field.Type === 0">
                 <fieldset class="form-group">
-                    <label for="{{field.Id}}">{{ field.Name}}</label>
-                    <input type="number" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                    <label for="{{field.Id}}">{{ field.Name}}<span class="text-danger">{{ field.Validation === 'Required' ? ' *' : '' }}</span></label>
+                    <input type="number" class="{{ field.Validation === 'Required' ? 'form-control form-control-lg required' : 'form-control form-control-lg' }}" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}" />
                 </fieldset>
             </div>
             <div ng-if="field.Type === 1">
                 <fieldset class="form-group">
-                    <label for="{{field.Id}}">{{ field.Name}}</label>
-                    <input type="text" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                    <label for="{{field.Id}}">{{ field.Name}} <span class="text-danger">{{ field.Validation === 'Required' ? ' *' : '' }}</span></label>
+                    <input type="text" class="{{ field.Validation === 'Required' ? 'form-control form-control-lg required' : 'form-control form-control-lg' }}" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
                 </fieldset>
             </div>
             <div ng-if="field.Type === 2">
                 <fieldset class="form-group">
-                    <label for="{{field.Id}}">{{ field.Name}}</label>
-                    <input type="text" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                    <label for="{{field.Id}}">{{ field.Name}}<span class="text-danger">{{ field.Validation === 'Required' ? ' *' : '' }}</span></label>
+                    <input type="text" class="{{ field.Validation === 'Required' ? 'form-control form-control-lg required' : 'form-control form-control-lg' }}" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
                 </fieldset>
             </div>
             <div ng-if="field.Type === 3">
                 <fieldset class="form-group">
-                    <label for="{{field.Id}}">{{ field.Name}}</label>
-                    <input type="text" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                    <label for="{{field.Id}}">{{ field.Name}}<span class="text-danger">{{ field.Validation === 'Required' ? ' *' : '' }}</span></label>
+                    <input type="text" class="{{ field.Validation === 'Required' ? 'form-control form-control-lg required' : 'form-control form-control-lg' }}" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}" />
                 </fieldset>
             </div>
             <div ng-if="field.Type === 4">
                 <fieldset class="form-group">
-                    <label for="{{field.Id}}">{{ field.Name}}</label>
-                    <input type="email" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                    <label for="{{field.Id}}">{{ field.Name}}<span class="text-danger">{{ field.Validation === 'Required' ? ' *' : '' }}</span></label>
+                    <input type="email" class="{{ field.Validation === 'Required' ? 'form-control form-control-lg required' : 'form-control form-control-lg' }}" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
                 </fieldset>
             </div>
             <div ng-if="field.Type === 5">
                 <fieldset class="form-group">
-                    <label for="{{field.Id}}">{{ field.Name}}</label>
-                    <input type="file" class="form-control-file" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                    <label for="{{field.Id}}">{{ field.Name}}<span class="text-danger">{{ field.Validation === 'Required' ? ' *' : '' }}</span></label>
+                    <input type="file" class="form-control-file" data-id="{{field.Id}}" name="{{field.Name}}" />
                     <small class="text-muted">{{ field.Description }}</small>
                 </fieldset>
             </div>
             <div ng-if="field.Type === 6">
                 <fieldset class="form-group">
-                    <label for="{{field.Id}}">{{ field.Name}}</label>
-                    <input type="file" accept=".zip" class="form-control-file" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                    <label for="{{field.Id}}">{{ field.Name}}<span class="text-danger">{{ field.Validation === 'Required' ? ' *' : '' }}</span></label>
+                    <input type="file" accept=".zip" class="form-control-file" data-id="{{field.Id}}" name="{{field.Name}}" />
                     <small class="text-muted">{{ field.Description }}</small>
                 </fieldset>
             </div>
             <div ng-if="field.Type === 7 || field.Type === 8 || field.Type === 11 || field.Type === 12">
                 <fieldset class="form-group">
-                    <label class="form-control-label">{{ field.Name}}</label>
-                    <p><small class="text-muted">{{ field.Description }}</small></p>
-                    <div class="radio" ng-repeat="value in field.Values track by $index">
-                        <label>
-                            <input type="radio" name="{{ field.Id }}" data-id="{{field.Id}}" value="{{value}}" />
-                            {{ value }} {{ field.PriceModifiers[$index].c1 }}
-                        </label>
+                    <label class="form-control-label">{{ field.Name}}<span class="text-danger">{{ field.Validation === 'Required' ? ' *' : '' }}</span></label>
+                    <div><small class="text-muted">{{ field.Description }}</small></div>
+                    <div class="brn-group btn-group-vertical" data-toggle="buttons">
+                        <div ng-repeat="value in field.Values track by $index">
+                            <label class="btn">
+                                <input type="radio" class="{{ field.Validation === 'Required' ? 'required' : '' }}" name="{{field.Id}}" />
+                                <i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i>
+                                <span>{{value}}</span>
+                            </label>
+                        </div>
                     </div>
                 </fieldset>
             </div>
             <div ng-if="field.Type === 9 || field.Type == 10">
                 <fieldset class="form-group">
-                    <label class="form-control-label">{{ field.Name}}</label>
-                    <p><small class="text-muted">{{ field.Description }}</small></p>
-                    <div class="checkbox" ng-repeat="value in field.Values track by $index" >
-                        <label>
-                            <input type="checkbox" data-id="{{field.Id}}" value="{{value}}" />
-                            {{ value }}
-                        </label>
+                    <label class="form-control-label">{{ field.Name}}<span class="text-danger">{{ field.Validation === 'Required' ? ' *' : '' }}</span></label>
+                    <div><small class="text-muted">{{ field.Description }}</small></div>
+                    <div class="brn-group btn-group-vertical" data-toggle="buttons">
+                        <div ng-repeat="value in field.Values track by $index">
+                            <label class="btn">
+                                <input type="checkbox" name="{{field.Id}}" />
+                                <i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+                                <span>{{value}}</span>
+                            </label>
+                        </div>
                     </div>
                 </fieldset>
             </div>
             <div ng-if="field.Type === 13">
                 <fieldset class="form-group">
-                    <label for="{{field.Id}}">{{ field.Name}}</label>
-                    <input type="text" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
+                    <label for="{{field.Id}}">{{ field.Name}}<span class="text-danger">{{ field.Validation === 'Required' ? ' *' : '' }}</span></label>
+                    <input type="text" class="{{ field.Validation === 'Required' ? 'form-control form-control-lg required' : 'form-control form-control-lg' }}" data-id="{{field.Id}}" name="{{field.Name}}" placeholder="{{field.Description}}"/>
                 </fieldset>
             </div>
             <div ng-if="field.Type === 14">
                 <fieldset class="form-group">
-                    <label class="form-control-label">{{ field.Name}}</label>
-                    <p><small class="text-muted">{{ field.Description }}</small></p>
+                    <label class="form-control-label">{{ field.Name}}<span class="text-danger">{{ field.Validation === 'Required' ? ' *' : '' }}</span></label>
+                    <div><small class="text-muted">{{ field.Description }}</small></div>
                     <div ng-if="field.Values === null">
-                        <input type="number" class="form-control form-control-lg" data-id="{{field.Id}}" name="{{field.Name}}" min="1" placeholder="1"/>
+                        <input type="number" class="{{ field.Validation === 'Required' ? 'form-control form-control-lg required' : 'form-control form-control-lg' }}" data-id="{{field.Id}}" name="{{field.Name}}" min="1" placeholder="1"/>
                     </div>
                     <div class="radio" ng-if="field.Values !== null" ng-repeat="value in field.Values track by $index">
                         <label>
@@ -91,6 +100,6 @@
                 </fieldset>
             </div>
         </div>
+        <button ng-show="loadComplete" class="btn btn-special btn-lg btn-block" type="submit"><i class="fa fa-lock"></i> Purchase: {{currency}}{{price}}</button>
     </form>
-    <h2 ng-cloak>{{priceText}}{{currency}}{{price}}</h2>
 </div>

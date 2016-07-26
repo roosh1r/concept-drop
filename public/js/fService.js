@@ -29,7 +29,6 @@ angular.module('fService', [])
             tempMods = (tempMods.replace(/[[\]]/g,'')).replace(/\s/g,'');
             key.PriceModifiers = JSON.parse('[' + tempMods + ']');
           }
-          console.log(key.PriceModifiers);
         }
       });
     };

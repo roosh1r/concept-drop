@@ -5,6 +5,7 @@ fieldCtrl.controller('fieldCtrl', function($scope, $http, $route, $routeParams, 
   $scope.price = '';
   $scope.priceText = '';
   $scope.currency = '';
+  $scope.loadComplete = false;
 
   var config = {
     method: 'GET',
@@ -19,9 +20,9 @@ fieldCtrl.controller('fieldCtrl', function($scope, $http, $route, $routeParams, 
     $scope.priceText = 'Your design order will cost: ';
     $scope.currency = '$';
     $scope.price = responseObj.Price;
+    $scope.loadComplete = true;
   });
 
   $scope.getInputType = fService.getInputType;
-  $scope.validationFlag = fService.validationFlag;
 
 });

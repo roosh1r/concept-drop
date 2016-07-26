@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Declares meanMapApp as the starting Angular module -->
+<!-- Declares ConceptDrop as the starting Angular module -->
 <html class="no-js" ng-app="ConceptDrop">
 
 <head>
@@ -19,11 +19,48 @@
 
 <body>
     <div class="container-fluid">
+        <!-- Header--->
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <nav class="navbar navbar-inverse navbar-fixed-top">
+                  <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cd-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#/"><img class="img-navbar" src="img/logo.png" alt="ConceptDrop" /></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="cd-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                        <li class="active"><a href="#/#">Order<span class="sr-only">(current)</span></a></li>
+                        <li>
+                            <a href="http://conceptdrop.com" target="_blank">Visit</a>
+                        </li>
+                      </ul>
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+        </div>
+        <!-- End Header -->
+        <!-- Main -->
         <div class="row">
             <div class="col-sm-12 col-md-8 col-md-offset-2">
                 <div ng-view></div>
             </div>
         </div>
+        <!-- End Main -->
+        <!-- Footer--->
+        <div class="row">
+
+        </div>
+        <!-- End Footer -->
     </div>
 </body>
 <script src="js/app.js"></script>
@@ -31,7 +68,7 @@
 <script src="js/fieldCtrl.js"></script>
 <script src="js/tService.js"></script>
 <script src="js/fService.js"></script>
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/jquery/dist/jquery.js"></script>
 <script src="https://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
 
 </html>

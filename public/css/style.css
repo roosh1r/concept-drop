@@ -1,3 +1,12 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.img-navbar {
+    height:25px;
+    width:auto;
+    max-width: 100%;
+}
 .tile-list .list-item {
     /* This is the code responsible for the centering of content */
     display: -webkit-box;
@@ -33,11 +42,6 @@
     color: #777;
     font-size: 1.2em;
 }
-.list-item:hover{
-    background: #4ecec4;
-    border: none;
-    color: #fff;
-}
 .tile-list {
    /* This lines the li's up in a row and will wrap them under each other */
     display: -webkit-box;
@@ -58,6 +62,120 @@
 
     justify-content: center;
 }
+.list-item:hover{
+    background: #4ecec4;
+    border: none;
+    color: #fff;
+}
 .tile-list a:focus, .tile-list a:hover {
     text-decoration: none;
+}
+.form-group {
+    border: none;
+}
+.form-group label {
+    color: #4ecec4;
+    font-size: 2.1em;
+    font-weight: normal;
+}
+.form-group small {
+    padding: 0.25em 0 0.25em 0;
+    font-size: 1.25em;
+}
+input[type=text], input[type=email], input[type=number] {
+    border: 2px dashed #4ecec4;
+    height: 2em;
+    font-size: 1.75em;
+}
+input[type=text]:focus, input[type=email]:focus, input[type=number]:focus {
+    border-bottom: 4px solid rgb(255, 0, 153);
+    outline: none;
+    box-shadow: none;
+}
+label.btn span {
+  font-size: 1.75em ;
+}
+input[type=radio], input[type=checkbox] {
+  display: none;
+}
+label input[type="radio"] ~ i.fa.fa-circle-o{
+    color: #4ecec4;    display: inline;
+}
+label input[type="radio"] ~ i.fa.fa-check-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-check-circle-o{
+    color: #4ecec4;    display: inline;
+}
+label:hover input[type="radio"] ~ i.fa {
+color: #4ecec4;
+}
+
+label input[type="checkbox"] ~ i.fa.fa-square-o{
+    color: #4ecec4;    display: inline;
+}
+label input[type="checkbox"] ~ i.fa.fa-check-square-o{
+    display: none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-square-o{
+    display: none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o{
+    color: #4ecec4;    display: inline;
+}
+label:hover input[type="checkbox"] ~ i.fa {
+color: #4ecec4;
+}
+
+div[data-toggle="buttons"] label.active{
+    color: #4ecec4;
+}
+
+div[data-toggle="buttons"] label {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 2em;
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: top;
+  cursor: pointer;
+  background-color: none;
+  border: 0px solid #888;
+  border-radius: 3px;
+  color: #888;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+div[data-toggle="buttons"] label:hover {
+  color: #4ecec4;
+}
+
+div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-special {
+    background: #4ecec4;
+    color: #fff;
+    font-size: 2.0em;
+}
+.btn-special:hover {
+    background: #217871;
+    color: #fff;
+}
+.required ~ .require-text {
+  display: none;
+}
+input.required:focus ~ .require-text {
+  display: inline;
 }
