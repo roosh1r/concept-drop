@@ -30,7 +30,7 @@ ConceptDrop Coding Task
 - You shoud see the following message: ```App listening on port 3000```
 - Navigate to ```http://localhost:3000/``` to see the application
 
-# Additional things I would've like to do
+# Additional things I would've liked to do
 - Integrate the price modifiers in calculating the total cost
 - Improve user experience by providing them feedback about their progress on the form
 - Improve the salience of requried fields. Have pattern matching to give immedieate response to the user about their input.
